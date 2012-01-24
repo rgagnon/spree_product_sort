@@ -11,10 +11,12 @@
 %>
 
 <% product_taxons.each do |pt| %>
+  <% if pt %>
   <li id="product_taxons_<%=pt.id%>">
    <span class="handle">≡</span>
    <%= h pt.product.name %>
   </li>
+  <% end %>
 <% end %>
 </ul>
 
