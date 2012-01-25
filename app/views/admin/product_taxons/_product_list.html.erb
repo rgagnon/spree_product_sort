@@ -3,11 +3,20 @@
   if taxon.id
     products = taxon.products.available
   else
-    products = Product.available
-  end
-  
-  #collect the pts for this taxon from each product 
-  product_taxons = products.collect {|p| p.product_taxons.where(:taxon_id => taxon.id || 0).first }
+    products = Product.available.where(:deleted_at => nil)    
+  end %>
+
+<% 
+  Product.available.where(:deleted_at => nil).each do |p|
+    if p.product_taxons.where(:taxon_id => 0) == []
+      product_id = p.id.to_i
+      p.product_taxons << ProductTaxon.create(
+				:product_id => product_id, 
+				:taxon_id=>0)
+    end
+  end %>
+        
+<%  product_taxons = products.collect {|p| p.product_taxons.where(:taxon_id => taxon.id || 0).first }
 %>
 
 <% product_taxons.each do |pt| %>
