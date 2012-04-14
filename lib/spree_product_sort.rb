@@ -1,5 +1,5 @@
 require 'spree_core'
-require 'spree_product_sort_hooks'
+
 
 module SpreeProductSort
   class Engine < Rails::Engine
