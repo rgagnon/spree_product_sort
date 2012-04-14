@@ -1,5 +1,5 @@
 Deface::Override.new(:virtual_path => "spree/admin/shared/_product_sub_menu",
-                     :name => "converted_admin_product_sub_tabs_3772764",
-                     :insert_after => "[data-hook='admin_product_sub_tabs'], #admin_product_sub_tabs[data-hook]",
-                     :text => "<%= tab(:label => 'product_sorting', :route => 'positions_admin_product_taxonomies') %>",
+                     :name => "admin_product_sort",
+                     :insert_bottom => "[data-hook='admin_product_sub_tabs']",
+                     :text => '<li><%= link_to t("product_sort"), admin_product_sort_url %></li>',
                      :disabled => false)
