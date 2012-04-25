@@ -1,4 +1,4 @@
-Spree::Core::Engine.routes.prepend do
+Rails.application.routes.draw do
   
   namespace :admin do
 		# callback for jQuery sort action
